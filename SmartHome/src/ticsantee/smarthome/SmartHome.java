@@ -61,6 +61,7 @@ public class SmartHome {
 		Scanner in = null;
 		do
 		{
+			System.out.println("Please enter a sensor event in the form of <sensor_name>.<event>");
 			in = new Scanner(System.in);
 			String event = in.nextLine();
 			System.out.println(event);
