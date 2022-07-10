@@ -1,0 +1,5 @@
+@prefix pre: <http://www.owl-ontologies.com/SmartHome.owl#>.
+
+[UpdateLocation: (?Se pre:hasCurrentState ?St) (?St pre:indicateLocation "true"^^xsd:boolean) (?Se pre:deployedIn ?R) (?R pre:partOf ?H) (?U pre:liveIn ?H) -> Debug() (?U pre:detectedIn ?R)]
+# [UpdateLocation: (?Se pre:hasCurrentState ?St) (?St pre:indicateLocation "true"^^xsd:boolean) (?Se pre:deployedIn ?R) (?R pre:partOf ?H) (?U pre:liveIn ?H) -> Debug()]
+

@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.owl-ontologies.com/SmartHome.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/SmartHome.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Table">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Furniture"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Object"/>
+  <owl:Class rdf:ID="Resident">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Person"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Activity"/>
+  <owl:Class rdf:ID="Toilet">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Room"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SensorState"/>
+  <owl:Class rdf:ID="Bathroom">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Room"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Bedroom">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Room"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Cupboard">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Door">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Environment"/>
+  <owl:Class rdf:ID="Deviance">
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Sensor"/>
+  <owl:Class rdf:ID="Bed">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Outside">
+    <rdfs:subClassOf rdf:resource="#Environment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="House">
+    <rdfs:subClassOf rdf:resource="#Environment"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Room">
+    <rdfs:subClassOf rdf:resource="#Environment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Kitchen">
+    <rdfs:subClassOf rdf:resource="#Room"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Livngroom">
+    <rdfs:subClassOf rdf:resource="#Room"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SensorType"/>
+  <owl:Class rdf:ID="Normal">
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Furniture">
+    <rdfs:subClassOf rdf:resource="#Object"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasCurrentState">
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdfs:range rdf:resource="#SensorState"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="detectedIn">
+    <rdfs:domain rdf:resource="#Resident"/>
+    <rdfs:range rdf:resource="#Environment"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="deployedIn">
+    <rdfs:range rdf:resource="#Environment"/>
+    <rdfs:domain rdf:resource="#Sensor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasType">
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdfs:range rdf:resource="#SensorType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPossibleState">
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdfs:range rdf:resource="#SensorState"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="liveIn">
+    <rdfs:domain rdf:resource="#Resident"/>
+    <rdfs:range rdf:resource="#House"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="partOf">
+    <rdfs:domain rdf:resource="#Environment"/>
+    <rdfs:range rdf:resource="#Environment"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="attachedTo">
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdfs:range rdf:resource="#Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="believedToDo">
+    <rdfs:domain rdf:resource="#Resident"/>
+    <rdfs:range rdf:resource="#Activity"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="inRoomSince">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#Resident"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="indicateUse">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#SensorState"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="lastUpdate">
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasLastUpdate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Sensor"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="indicateLocation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#SensorState"/>
+  </owl:DatatypeProperty>
+  <Resident rdf:ID="johndoe">
+    <detectedIn>
+      <Outside rdf:ID="notAtHome"/>
+    </detectedIn>
+    <liveIn>
+      <House rdf:ID="house1"/>
+    </liveIn>
+  </Resident>
+  <Toilet rdf:ID="toilet1">
+    <partOf rdf:resource="#house1"/>
+  </Toilet>
+  <Bedroom rdf:ID="bedroom1">
+    <partOf rdf:resource="#house1"/>
+  </Bedroom>
+  <Sensor rdf:ID="b1">
+    <hasCurrentState>
+      <SensorState rdf:ID="b1_normal">
+        <indicateUse rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</indicateUse>
+      </SensorState>
+    </hasCurrentState>
+    <hasPossibleState>
+      <SensorState rdf:ID="b1_alert"/>
+    </hasPossibleState>
+    <hasPossibleState rdf:resource="#b1_normal"/>
+    <hasType>
+      <SensorType rdf:ID="reed"/>
+    </hasType>
+    <attachedTo>
+      <Door rdf:ID="door1"/>
+    </attachedTo>
+  </Sensor>
+  <Sensor rdf:ID="a1">
+    <hasPossibleState>
+      <SensorState rdf:ID="a1_on">
+        <indicateLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</indicateLocation>
+      </SensorState>
+    </hasPossibleState>
+    <hasPossibleState>
+      <SensorState rdf:ID="a1_off"/>
+    </hasPossibleState>
+    <deployedIn>
+      <Kitchen rdf:ID="kitchen1">
+        <partOf rdf:resource="#house1"/>
+      </Kitchen>
+    </deployedIn>
+    <hasType>
+      <SensorType rdf:ID="pir"/>
+    </hasType>
+    <hasCurrentState rdf:resource="#a1_off"/>
+  </Sensor>
+  <Livngroom rdf:ID="livngroom1">
+    <partOf rdf:resource="#house1"/>
+  </Livngroom>
+  <Bathroom rdf:ID="bathroom1">
+    <partOf rdf:resource="#house1"/>
+  </Bathroom>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
